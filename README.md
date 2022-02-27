@@ -1,4 +1,4 @@
-Role Name
+macos_dock
 =========
 
 A role to setup the macOS dock in a configured order. This role relies on [dockutil](https://github.com/kcrawford/dockutil) installed.
