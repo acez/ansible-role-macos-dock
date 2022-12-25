@@ -3,7 +3,7 @@ galaxy_info:
   author: Christian Wilhelm
   description: Ansible role to setup the macOS dock
   license: MIT
-  min_ansible_version: 2.1
+  min_ansible_version: "2.10"
   galaxy_tags: ['macOS', 'dock', 'homebrew']
   platforms:
   - name: macOS

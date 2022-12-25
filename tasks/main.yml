@@ -1,19 +1,19 @@
 ---
-- name: ensure dockutil installed
+- name: Ensure dockutil installed
   community.general.homebrew:
     name: "dockutil"
     state: "latest"
 
-- name: ensure clean dock
-  shell:
+- name: Ensure clean dock
+  ansible.builtin.shell:
     cmd: dockutil --remove all --no-restart
 
-- name: ensure apps added to dock
-  shell:
-    cmd: dockutil --add "{{ item.path }}" --view "{{ item.view|default('grid') }}" --sort "{{ item.sort|default('name') }}" --no-restart
+- name: Ensure apps added to dock
+  ansible.builtin.shell:
+    cmd: dockutil --add "{{ item.path }}" --view "{{ item.view | default('grid') }}" --sort "{{ item.sort | default('name') }}" --no-restart
   with_items:
     - "{{ macos_dock_apps }}"
 
-- name: restart dock
-  shell:
+- name: Restart dock
+  ansible.builtin.shell:
     cmd: killall Dock
