@@ -1,8 +1,11 @@
 ---
 - name: Ensure dockutil installed
-  community.general.homebrew:
-    name: "dockutil"
-    state: "latest"
+  ansible.builtin.shell:
+    cmd: dockutil --version
+  register: result
+  check_mode: false
+  changed_when: false
+  failed_when: result.rc != 0
 
 - name: Ensure clean dock
   ansible.builtin.shell:
